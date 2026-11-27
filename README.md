@@ -92,6 +92,7 @@ A proposta explorava quatro tipos de local (ruas, residências, lojas *chain sto
 | `fig/figura_rua_4_distritos_harassment2.png` | *Harassment 2*: queixas por distrito e sexo da vítima (lollipop) |
 | `fig/figura_rua_4_distritos_harassment2_interativa.html` | Figura 4 em `plotly`: três painéis (vítimas homens, vítimas mulheres, % de mulheres por distrito) ligados por clique; queixas por ano no tooltip |
 | `fig/figura_rua_5…8_*.png` | *Harassment 2* com suspeito homem: raça de vítimas e suspeitos por distrito (mapas de calor, opcionais) |
+| `fig/figura_rua_9_mulheres_por_ano.png` | % de vítimas mulheres por ano em cada infração da Figura 2 (linhas) |
 
 > As imagens em `fig/` são geradas pelo `ggsave()` do notebook (300 dpi). Ao correr o notebook outra vez, são substituídas mantendo os mesmos nomes.
 >
@@ -126,7 +127,7 @@ O notebook funciona **no computador e no Colab** sem alterações: procura os da
 
 **No computador (VS Code + kernel R):**
 
-1. Instalar o R (4.6+) e os pacotes: `install.packages(c("dplyr", "ggplot2", "scales", "lubridate", "plotly", "htmlwidgets", "shiny", "tidyr", "IRkernel"))`.
+1. Instalar o R (4.6+) e os pacotes: `install.packages(c("dplyr", "ggplot2", "scales", "lubridate", "plotly", "htmlwidgets", "ggrepel", "shiny", "tidyr", "IRkernel"))`.
 2. Registar o kernel R no Jupyter: `IRkernel::installspec()` (precisa do comando `jupyter` no PATH).
 3. Colocar `nypd_2020_2026.rds` em `data/`.
 4. Abrir `R/trabalho_vd.ipynb` no VS Code e escolher **Select Kernel → Jupyter Kernel → R**.
