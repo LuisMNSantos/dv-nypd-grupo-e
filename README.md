@@ -87,11 +87,14 @@ A proposta explorava quatro tipos de local (ruas, residências, lojas *chain sto
 |---|---|
 | `fig/figura_rua_1_sexo_vitimas.png` | Vítimas homens vs. mulheres (barras) |
 | `fig/figura_rua_2_infracoes.png` | % homens/mulheres nas 9 infrações mais frequentes (barras 100 %) |
+| `fig/figura_rua_2_infracoes_interativa.html` | Figura 2 em `plotly`, com seletor de período (total 2020-2025 e cada ano) |
 | `fig/figura_rua_3_suspeitos_harassment2.png` | *Harassment 2*: sexo do suspeito por sexo da vítima |
 | `fig/figura_rua_4_distritos_harassment2.png` | *Harassment 2*: queixas por distrito e sexo da vítima (lollipop) |
 | `fig/figura_rua_5…8_*.png` | *Harassment 2* com suspeito homem: raça de vítimas e suspeitos por distrito (mapas de calor, opcionais) |
 
 > As imagens em `fig/` são geradas pelo `ggsave()` do notebook (300 dpi). Ao correr o notebook outra vez, são substituídas mantendo os mesmos nomes.
+>
+> Os `.html` são gravados com `htmlwidgets::saveWidget()`. Sem `pandoc` instalado (caso do computador), as bibliotecas JavaScript ficam em `fig/lib/`, que tem de ir no ZIP para os gráficos abrirem; com `pandoc` (Colab) cada gráfico fica num só ficheiro.
 
 ### Por fazer
 
