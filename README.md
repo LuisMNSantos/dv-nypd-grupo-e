@@ -90,6 +90,7 @@ A proposta explorava quatro tipos de local (ruas, residências, lojas *chain sto
 | `fig/figura_rua_2_infracoes_interativa.html` | Figura 2 em `plotly`, com seletor de período (total 2020-2025 e cada ano) |
 | `fig/figura_rua_3_suspeitos_harassment2.png` | *Harassment 2*: sexo do suspeito por sexo da vítima |
 | `fig/figura_rua_4_distritos_harassment2.png` | *Harassment 2*: queixas por distrito e sexo da vítima (lollipop) |
+| `fig/figura_rua_4_distritos_harassment2_interativa.html` | Figura 4 em `plotly`: três painéis (vítimas homens, vítimas mulheres, % de mulheres por distrito) ligados por clique; queixas por ano no tooltip |
 | `fig/figura_rua_5…8_*.png` | *Harassment 2* com suspeito homem: raça de vítimas e suspeitos por distrito (mapas de calor, opcionais) |
 
 > As imagens em `fig/` são geradas pelo `ggsave()` do notebook (300 dpi). Ao correr o notebook outra vez, são substituídas mantendo os mesmos nomes.

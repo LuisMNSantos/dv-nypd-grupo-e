@@ -465,6 +465,81 @@ acrescenta está na célula de texto por baixo do gráfico.
 \end{figure}
 
 % ==============================================================================
+\section{Figura 4 interativa}
+
+\ficha{27 nov 2026}
+      {\texttt{R/trabalho\_vd.ipynb} (célula de código e célula de texto novas)}
+      {\texttt{fig/figura\_rua\_4\_distritos\_harassment2\_interativa.html} (nova)}
+      {o commit que acrescenta esta entrada (\texttt{git log -{}- docs/})}
+      {Grupo E}
+
+\subsection*{O que mudou}
+
+Versão em \texttt{plotly} da Figura 4 com três painéis lado a lado, ligados por clique:
+\begin{itemize}
+  \item \textbf{Painéis 1 e 2:} número de queixas com vítima homem e com vítima mulher, por
+        distrito, com a mesma ordem da figura estática e o mesmo eixo x nos dois.
+  \item \textbf{Painel 3 (novo):} percentagem de vítimas mulheres em cada distrito, com a linha
+        dos 50\,\%.
+  \item \textbf{Clique:} clicar num distrito, em qualquer painel, destaca-o nos três (os outros
+        ficam a 25\,\% de opacidade); duplo clique limpa. Funciona no HTML aberto diretamente no
+        browser, sem R nem servidor (\texttt{crosstalk}).
+  \item \textbf{Ao passar o rato:} nos painéis 1 e 2, as queixas de 2020--2025, o peso do distrito
+        nas vítimas desse sexo, a \% de mulheres no distrito e as queixas de cada ano; no painel 3,
+        a \% de mulheres com o número de mulheres e o total.
+\end{itemize}
+
+Uma primeira versão (\texttt{ggplotly()} sobre a figura estática, só com mais informação ao passar
+o rato) foi substituída por esta antes de ser entregue, porque a interação não acrescentava nada
+que não se pudesse escrever na figura estática.
+
+\subsection*{Justificação}
+
+Os dois painéis da figura estática têm os distritos por ordens diferentes, o que torna difícil
+comparar o mesmo distrito entre vítimas homens e mulheres. O destaque por clique resolve isso.
+As contagens misturam o tamanho do distrito com a proporção de mulheres: o painel 3 separa as duas
+coisas e mostra, sem clicar, que o Brooklyn lidera nas contagens mas é o Bronx que tem a maior
+proporção de vítimas mulheres.
+
+\textbf{Alternativas consideradas e descartadas:}
+\begin{itemize}
+  \item \emph{Menu para trocar de medida} (contagem, \% dentro do sexo, \% de mulheres): a
+        ``\% dentro do sexo'' é a contagem dividida por uma constante e dá a mesma ordem e a mesma
+        forma, por isso fica só no tooltip; a \% de mulheres é um só valor por distrito e repetia-se
+        nos dois painéis, por isso passou a 3.º painel. Um menu teria de trocar dados, eixos e
+        ordens de vários traços ao mesmo tempo e funciona mal com o destaque por clique.
+  \item \emph{Seletor de ano} (\texttt{frame = ano}): a animação e o destaque por clique funcionam
+        mal juntos (o destaque perde-se ao mudar de ano). O ``ao longo do tempo'' já está na
+        Figura 2 interativa e no Gráfico 9; aqui as contagens por ano ficam no tooltip.
+  \item \emph{Clique que abre o detalhe dos suspeitos do distrito}: precisa de calcular dados novos
+        a cada clique, o que é o papel da app Shiny (C4).
+\end{itemize}
+
+Detalhes técnicos: a linha dos 50\,\% tem de ser passada como uma só forma
+(\texttt{shapes = list(...)}), porque depois do \texttt{subplot()} uma lista de formas era apagada;
+os eixos estão fixos (\texttt{fixedrange = TRUE}) para o duplo clique, que limpa o destaque, não
+mudar também a escala do painel 3.
+
+\subsection*{Efeito no gráfico e nas conclusões}
+
+Painel 3: Bronx 60\,\%, Staten Island 56\,\%, Brooklyn 55\,\%, Manhattan 53\,\%, Queens 52\,\% de
+vítimas mulheres. A conclusão do Gráfico 4 ganha uma frase: \emph{em proporção, o Bronx é o
+distrito com maior percentagem de vítimas mulheres (60\,\%, contra 55\,\% no Brooklyn)}.
+Confirmado: a soma das queixas por ano no tooltip dá o total 2020--2025 de cada distrito.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{img/09_fig4_interativa.png}
+  \caption{Figura 4 interativa (\textbf{nova}).}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{img/09_fig4_interativa_clique.png}
+  \caption{Figura 4 interativa depois de clicar em Queens: o distrito fica destacado nos três painéis.}
+\end{figure}
+
+% ==============================================================================
 % MODELO PARA NOVAS ALTERAÇÕES (copiar, numerar e preencher)
 %
 % \section{Título curto da alteração}
