@@ -1,0 +1,23 @@
+# Dados do projeto (81 MB; o protocolo da UC pede para não os incluir no ZIP)
+data/*
+!data/.gitkeep
+*.rds
+*.RData
+*.rda
+
+# R / RStudio
+.Rhistory
+.Rapp.history
+.Rproj.user/
+rsconnect/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# ZIPs de entrega gerados localmente
+*.zip
