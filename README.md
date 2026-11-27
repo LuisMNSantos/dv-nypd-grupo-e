@@ -109,6 +109,7 @@ A proposta explorava quatro tipos de local (ruas, residências, lojas *chain sto
 ├── fig/                    figuras produzidas pelos scripts
 ├── app/                    app Shiny (a partir do checkpoint 4)
 ├── docs/
+│   ├── alterações/         registo de alterações (LaTeX + PDF) com justificações e capturas antes/depois
 │   ├── enunciado/          enunciado, dicionário de dados, protocolo e resumo de prazos
 │   └── feedback/checkpoint1/  feedback e classificação do PPA (fotografias)
 ├── data/                   nypd_2020_2026.rds — NÃO vai para o Git nem para o ZIP

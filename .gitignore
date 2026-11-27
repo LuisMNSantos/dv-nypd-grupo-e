@@ -21,3 +21,13 @@ desktop.ini
 
 # ZIPs de entrega gerados localmente
 *.zip
+
+# LaTeX (ficheiros auxiliares de compilação)
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
