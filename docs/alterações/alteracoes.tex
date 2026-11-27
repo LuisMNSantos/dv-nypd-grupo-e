@@ -16,6 +16,9 @@
 \definecolor{azul}{HTML}{3A6EA5}
 \definecolor{fundo}{HTML}{F3F6FA}
 
+% o babel português usa " como atalho; desligado para as aspas aparecerem no código
+\AtBeginDocument{\shorthandoff{"}}
+
 % legendas das capturas: "Captura N" (evita confusão com os números das figuras do projeto)
 \addto\captionsportuguese{\renewcommand{\figurename}{Captura}}
 
@@ -142,6 +145,169 @@ gráfico com o mesmo problema.
   \centering
   \includegraphics[width=0.85\linewidth]{img/01_fig2_depois.png}
   \caption{Figura 2 \textbf{depois}: as 8 infrações com mais vítimas homens ou mulheres.}
+\end{figure}
+
+% ==============================================================================
+\section{Figura 2: nomes das infrações e subtítulo}
+
+\ficha{27 nov 2026}
+      {\texttt{R/trabalho\_vd.ipynb} (tabela \texttt{sex\_off} e gráfico \texttt{p\_sex\_off})}
+      {\texttt{fig/figura\_rua\_2\_infracoes.png}}
+      {o commit que acrescenta esta entrada (\texttt{git log -{}- docs/})}
+      {Grupo E}
+
+\subsection*{O que mudou}
+
+\begin{itemize}
+  \item O número de queixas de cada infração passa a estar sempre numa linha própria, por baixo
+        do nome: \texttt{paste0(ofns\_desc, "\textbackslash n(n = ", ...)}. Foi retirado o
+        \texttt{label\_wrap(32)}, que partia os nomes pelo meio.
+  \item O subtítulo passa a ter duas linhas e a segunda diz qual é o critério de escolha das
+        infrações: \emph{``Oito infrações com mais queixas em que a vítima é homem ou mulher''}.
+\end{itemize}
+
+\subsection*{Justificação}
+
+\begin{itemize}
+  \item O \texttt{label\_wrap(32)} cortava o texto onde calhava. Por exemplo, ficava
+        ``ASSAULT 3 \& RELATED OFFENSES (n'' numa linha e ``= 86,531)'' na seguinte. No
+        checkpoint 1 o grupo foi penalizado por legibilidade (4,8 pontos). Com o total sempre
+        na segunda linha, todos os nomes ficam iguais e legíveis.
+  \item Depois da alteração 1, as infrações deixaram de ser as ``mais frequentes'' de todas as
+        queixas de rua. Com o subtítulo antigo, o leitor podia perguntar porque falta Vehicle and
+        Traffic Laws, que é a 3.ª infração mais frequente na rua. O subtítulo novo diz o critério.
+\end{itemize}
+
+\subsection*{Efeito no gráfico e nas conclusões}
+
+Nenhum valor muda: é só apresentação. A captura ``depois'' já tem também o separador de
+milhares da alteração 3.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\linewidth]{img/02_fig2_antes.png}
+  \caption{Figura 2 \textbf{antes}: nomes partidos a meio do ``(n = \dots)'' e subtítulo sem o critério.}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\linewidth]{img/02_fig2_depois.png}
+  \caption{Figura 2 \textbf{depois}: total numa linha própria e critério no subtítulo.}
+\end{figure}
+
+% ==============================================================================
+\section{Todas as figuras: separador de milhares em português}
+
+\ficha{27 nov 2026}
+      {\texttt{R/trabalho\_vd.ipynb} (novo formatador \texttt{num\_pt}, usado em vez de \texttt{comma})}
+      {as 8 figuras de \texttt{fig/}}
+      {o commit que acrescenta esta entrada (\texttt{git log -{}- docs/})}
+      {Grupo E}
+
+\subsection*{O que mudou}
+
+Foi criado um formatador, \texttt{num\_pt <- label\_number(big.mark = " ")}, definido uma vez
+no início do notebook. Substitui o \texttt{comma} em todos os números dos gráficos (eixos,
+etiquetas e totais \texttt{n = \dots}): \textbf{413,392} passa a \textbf{413 392}.
+
+\subsection*{Justificação}
+
+Os gráficos estão em português, mas os números usavam a vírgula como separador de milhares,
+que é a convenção inglesa. Em português a vírgula é o separador \emph{decimal}, por isso
+``413,392'' pode ser lido como ``quatrocentos e treze vírgula três''. O espaço é a forma
+recomendada em português e não se confunde com casas decimais.
+
+\subsection*{Efeito no gráfico e nas conclusões}
+
+Nenhum valor muda: é só a forma de escrever os números.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{0.48\linewidth}\centering
+    \includegraphics[width=\linewidth]{img/03_fig1_antes.png}
+  \end{minipage}\hfill
+  \begin{minipage}{0.48\linewidth}\centering
+    \includegraphics[width=\linewidth]{img/03_fig1_depois.png}
+  \end{minipage}
+  \caption{Figura 1, \textbf{antes} (esquerda) e \textbf{depois} (direita).}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\linewidth]{img/03_fig4_antes.png}\\[6pt]
+  \includegraphics[width=0.85\linewidth]{img/03_fig4_depois.png}
+  \caption{Figura 4, \textbf{antes} (em cima) e \textbf{depois} (em baixo).}
+\end{figure}
+
+% ==============================================================================
+\section{Figuras 4 a 8: filtro dos distritos em falta}
+
+\ficha{27 nov 2026}
+      {\texttt{R/trabalho\_vd.ipynb} (tabelas \texttt{har\_boro} e \texttt{har\_raca})}
+      {\texttt{fig/figura\_rua\_4\_\dots} a \texttt{fig/figura\_rua\_8\_\dots} (sem mudança visível)}
+      {o commit que acrescenta esta entrada (\texttt{git log -{}- docs/})}
+      {Grupo E}
+
+\subsection*{O que mudou}
+
+\begin{center}\small
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Antes} & \textbf{Depois}\\
+\midrule
+\texttt{boro\_nm != "(null)"} & \texttt{!is.na(boro\_nm)}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{Justificação}
+
+Nas queixas de rua de 2020--2025, a coluna \texttt{boro\_nm} não tem nenhum valor
+\texttt{"(null)"}. Os distritos em falta estão registados como \texttt{NA} (82 queixas). O
+filtro antigo funcionava só por acaso: em R, \texttt{NA != "(null)"} dá \texttt{NA} e o
+\texttt{filter()} deixa cair essas linhas. O filtro novo diz exatamente o que se pretende, que é
+retirar os distritos em falta. No checkpoint 1 o professor apontou que os valores em falta
+não tinham sido tratados corretamente (\texttt{NA} e \texttt{"(null)"}), por isso o código deve
+mostrar que o grupo sabe como cada coluna regista os valores em falta.
+
+\subsection*{Efeito no gráfico e nas conclusões}
+
+Nenhum: as contagens são exatamente as mesmas. Por exemplo, na Figura 4 o Brooklyn continua com
+10\,629 vítimas homens e 12\,801 mulheres, e nas Figuras 5 a 8 a cidade toda continua com
+$n = 23\,469$.
+
+% ==============================================================================
+\section{Figuras 5 e 6: ``raça das vítimas'' no subtítulo}
+
+\ficha{27 nov 2026}
+      {\texttt{R/trabalho\_vd.ipynb} (função \texttt{raca\_plot})}
+      {\texttt{fig/figura\_rua\_5\_raca\_vitimas\_mulheres.png},
+       \texttt{fig/figura\_rua\_6\_raca\_vitimas\_homens.png}}
+      {o commit que acrescenta esta entrada (\texttt{git log -{}- docs/})}
+      {Grupo E}
+
+\subsection*{O que mudou}
+
+A função \texttt{raca\_plot} escrevia sempre ``por raça \emph{dos}'' seguido de ``vítimas'' ou
+``suspeitos'', o que dava ``por raça \textbf{dos vítimas}''. Agora escolhe o artigo certo:
+\texttt{if (quem == "vítimas") "das " else "dos "}.
+
+\subsection*{Justificação}
+
+Erro de concordância visível no subtítulo de duas figuras. As Figuras 7 e 8 (``dos suspeitos'')
+já estavam certas e continuam iguais.
+
+\subsection*{Efeito no gráfico e nas conclusões}
+
+Nenhum valor muda: só o texto do subtítulo. A captura ``depois'' já tem também o separador de
+milhares da alteração 3.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\linewidth]{img/05_fig5_antes.png}\\[6pt]
+  \includegraphics[width=0.85\linewidth]{img/05_fig5_depois.png}
+  \caption{Figura 5, \textbf{antes} (em cima: ``raça dos vítimas'') e \textbf{depois}
+           (em baixo: ``raça das vítimas'').}
 \end{figure}
 
 % ==============================================================================
