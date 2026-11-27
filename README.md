@@ -81,12 +81,12 @@ A proposta explorava quatro tipos de local (ruas, residências, lojas *chain sto
 **Pergunta central:** Quem são as vítimas de crime de rua em Nova Iorque, e isto muda ao longo do tempo e pela cidade?
 
 - **Hipótese descartada:** os crimes de rua estão distribuídos de forma igual entre grupos de vítimas e locais (qualquer resultado a responde e, sem população, não se interpretam contagens).
-- **Hipótese testada:** os homens são a maioria das vítimas em todas as infrações de rua → **rejeitada**: são ~6 em cada 10 vítimas no total e a maioria em 7 das 8 infrações principais, mas em *Harassment 2* as mulheres são 55 %.
+- **Hipótese testada:** os homens são a maioria das vítimas em todas as infrações de rua → **rejeitada**: são ~6 em cada 10 vítimas no total e a maioria em 8 das 9 infrações principais, mas em *Harassment 2* as mulheres são 55 %.
 
 | Figura | Conteúdo |
 |---|---|
 | `fig/figura_rua_1_sexo_vitimas.png` | Vítimas homens vs. mulheres (barras) |
-| `fig/figura_rua_2_infracoes.png` | % homens/mulheres nas 8 infrações mais frequentes (barras 100 %) |
+| `fig/figura_rua_2_infracoes.png` | % homens/mulheres nas 9 infrações mais frequentes (barras 100 %) |
 | `fig/figura_rua_3_suspeitos_harassment2.png` | *Harassment 2*: sexo do suspeito por sexo da vítima |
 | `fig/figura_rua_4_distritos_harassment2.png` | *Harassment 2*: queixas por distrito e sexo da vítima (lollipop) |
 | `fig/figura_rua_5…8_*.png` | *Harassment 2* com suspeito homem: raça de vítimas e suspeitos por distrito (mapas de calor, opcionais) |

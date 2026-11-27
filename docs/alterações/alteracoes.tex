@@ -352,6 +352,72 @@ Nenhum: nenhuma figura muda. A célula nova tem um controlo: a tabela tem 96 lin
 da Figura 2.
 
 % ==============================================================================
+\section{Figura 2: corte passa de 8 para 9 infrações}
+
+\ficha{27 nov 2026}
+      {\texttt{R/trabalho\_vd.ipynb} (célula principal: \texttt{top8} $\to$ \texttt{top\_inf}, subtítulo,
+       altura, conclusão e limitações; célula da tabela por ano; célula de texto da conclusão)}
+      {\texttt{fig/figura\_rua\_2\_infracoes.png}}
+      {o commit que acrescenta esta entrada (\texttt{git log -{}- docs/})}
+      {Grupo E}
+
+\subsection*{O que mudou}
+
+\begin{itemize}
+  \item O número de infrações da Figura 2 passa a estar numa variável, \texttt{n\_inf <- 9}, e a
+        lista chama-se \texttt{top\_inf} (antes \texttt{top8}). A tabela por ano
+        (\texttt{sex\_off\_ano}) usa a mesma lista.
+  \item Subtítulo: ``Oito infrações com mais queixas\ldots'' passa a ``Nove infrações com mais queixas\ldots''.
+  \item Altura da figura: 5,5 para 6 polegadas, para caber a barra nova.
+  \item Conclusão (comentários e célula de texto): ``7 das 8 infrações principais'' passa a
+        ``8 das 9 infrações principais''. Nas limitações acrescenta-se uma frase sobre o corte.
+  \item Controlo da tabela por ano: 108 linhas (6 anos $\times$ 9 infrações $\times$ 2 sexos), antes 96.
+\end{itemize}
+
+\subsection*{Justificação}
+
+O corte em 8 não tinha justificação nos dados: a 8.ª infração tem 38\,218 queixas e a 9.ª tem
+33\,274, sem nenhuma quebra entre as duas. A quebra natural está a seguir à 9.ª:
+
+\begin{center}\small
+\begin{tabular}{@{}rlrr@{}}
+\toprule
+\textbf{Posição} & \textbf{Infração} & \textbf{Queixas com vítima pessoa} & \textbf{\% mulheres}\\
+\midrule
+8  & FELONY ASSAULT           & 38\,218 & 25\,\%\\
+9  & VEHICLE AND TRAFFIC LAWS & 33\,274 & 34\,\%\\
+10 & MISCELLANEOUS PENAL LAW  & 12\,564 & 52\,\%\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Para ficar transparente: com 10 ou mais infrações, Miscellaneous Penal Law (52\,\% de vítimas
+mulheres) também teria maioria de mulheres e \textit{Harassment 2} deixava de ser a única. A
+hipótese continuava rejeitada (até com mais força). Isto fica escrito nas limitações, para se ver
+que o corte não foi escolhido para manter a frase ``a única''.
+
+\subsection*{Efeito no gráfico e nas conclusões}
+
+\begin{itemize}
+  \item \textbf{Entra:} Vehicle and Traffic Laws (66\,\% homens, $n = 33\,274$). Tem maioria de homens.
+  \item As outras 8 infrações mantêm os mesmos valores.
+  \item \textbf{A conclusão da hipótese não muda:} os homens são a maioria em 8 das 9 infrações e
+        \textit{Harassment 2} continua a ser a única exceção (55\,\% mulheres).
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\linewidth]{img/07_fig2_antes.png}
+  \caption{Figura 2 \textbf{antes}: 8 infrações.}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\linewidth]{img/07_fig2_depois.png}
+  \caption{Figura 2 \textbf{depois}: 9 infrações, com Vehicle and Traffic Laws.}
+\end{figure}
+
+% ==============================================================================
 % MODELO PARA NOVAS ALTERAÇÕES (copiar, numerar e preencher)
 %
 % \section{Título curto da alteração}
