@@ -311,6 +311,47 @@ milhares da alteração 3.
 \end{figure}
 
 % ==============================================================================
+\section{Notebook: hipóteses em texto e tabela por ano}
+
+\ficha{27 nov 2026}
+      {\texttt{R/trabalho\_vd.ipynb} (duas células de texto e uma célula de código novas)}
+      {nenhuma}
+      {o commit que acrescenta esta entrada (\texttt{git log -{}- docs/})}
+      {Grupo E}
+
+\subsection*{O que mudou}
+
+\begin{itemize}
+  \item Nova célula de texto no início do notebook com a pergunta central, a hipótese inicial
+        descartada (e porquê), a observação que originou a nova hipótese e a nova hipótese.
+  \item Nova célula de texto no fim com a conclusão (resultado da hipótese, resumo de cada
+        gráfico e limitações).
+  \item Nova célula de código, depois da célula principal, que cria a tabela
+        \texttt{sex\_off\_ano}: número de queixas e percentagem de vítimas homens e mulheres
+        em cada uma das 8 infrações da Figura 2, por ano do incidente (2020 a 2025).
+\end{itemize}
+
+O texto das duas células novas é o mesmo que já estava nos comentários da célula principal,
+que se mantêm.
+
+\subsection*{Justificação}
+
+Nos comentários do código, a pergunta, as hipóteses e a conclusão só se viam abrindo a célula.
+Em texto ficam visíveis a quem lê o notebook, antes e depois dos gráficos.
+
+A tabela por ano é a base para a versão interativa da Figura 2 com escolha do ano e para uma
+figura da evolução da percentagem de mulheres por infração, que respondem à parte ``ao longo do
+tempo'' da pergunta central. A tabela usa a mesma base (\texttt{fm}) e as mesmas 8 infrações
+(\texttt{top8}) da Figura 2, e a ordem das infrações vem dos totais de 2020--2025, para ser a
+mesma em todos os anos.
+
+\subsection*{Efeito no gráfico e nas conclusões}
+
+Nenhum: nenhuma figura muda. A célula nova tem um controlo: a tabela tem 96 linhas
+(6 anos $\times$ 8 infrações $\times$ 2 sexos) e, somando os anos, dá exatamente as contagens
+da Figura 2.
+
+% ==============================================================================
 % MODELO PARA NOVAS ALTERAÇÕES (copiar, numerar e preencher)
 %
 % \section{Título curto da alteração}
