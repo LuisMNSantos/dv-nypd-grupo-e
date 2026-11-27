@@ -91,7 +91,7 @@ A proposta explorava quatro tipos de local (ruas, residências, lojas *chain sto
 | `fig/figura_rua_4_distritos_harassment2.png` | *Harassment 2*: queixas por distrito e sexo da vítima (lollipop) |
 | `fig/figura_rua_5…8_*.png` | *Harassment 2* com suspeito homem: raça de vítimas e suspeitos por distrito (mapas de calor, opcionais) |
 
-> As imagens em `fig/` foram extraídas dos outputs guardados no notebook (resolução de ecrã). Ao correr o notebook, o `ggsave()` gera as versões a 300 dpi com os mesmos nomes.
+> As imagens em `fig/` são geradas pelo `ggsave()` do notebook (300 dpi). Ao correr o notebook outra vez, são substituídas mantendo os mesmos nomes.
 
 ### Por fazer
 
@@ -117,11 +117,16 @@ A proposta explorava quatro tipos de local (ruas, residências, lojas *chain sto
 
 ## Como correr
 
-O notebook foi escrito para o **Google Colab** (kernel R) e lê o ficheiro de dados e grava as figuras na pasta de trabalho. Para correr localmente:
+O notebook funciona **no computador e no Colab** sem alterações: procura os dados primeiro na pasta atual (Colab) e depois em `../data/`, e grava as figuras em `../fig/` quando essa pasta existe.
 
-1. Instalar os pacotes: `install.packages(c("dplyr", "ggplot2", "scales", "lubridate", "plotly", "shiny"))`.
-2. Colocar `nypd_2020_2026.rds` em `data/`.
-3. No notebook, mudar o caminho de leitura para `"../data/nypd_2020_2026.rds"` e os `ggsave()` para `"../fig/…"` (ou, no Colab, carregar o `.rds` para a pasta de ficheiros, como até agora).
+**No computador (VS Code + kernel R):**
+
+1. Instalar o R (4.6+) e os pacotes: `install.packages(c("dplyr", "ggplot2", "scales", "lubridate", "plotly", "htmlwidgets", "shiny", "tidyr", "IRkernel"))`.
+2. Registar o kernel R no Jupyter: `IRkernel::installspec()` (precisa do comando `jupyter` no PATH).
+3. Colocar `nypd_2020_2026.rds` em `data/`.
+4. Abrir `R/trabalho_vd.ipynb` no VS Code e escolher **Select Kernel → Jupyter Kernel → R**.
+
+**No Colab:** carregar o `.rds` para a pasta de ficheiros, como até agora.
 
 ## Preparar o ZIP semanal
 
